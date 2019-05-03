@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '2.0.2'
+}
+
+group 'me.nahuld'
+version '1.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
+}
+
+jar.manifest.attributes(
+        'Main-Class': 'me.nahuld.nokaboom.Main'
+)
+
+compileJava {
+    options.compilerArgs += ['-parameters']
+    options.fork = true
+    options.forkOptions.executable = 'javac'
+}
+
+shadowJar {
+    archiveName = "nokaboom-v${version}.${extension}"
+}
+
+build.dependsOn shadowJar

@@ -1,0 +1,6 @@
+name: NoKaboom
+version: 1.0.0-SNAPSHOT
+author: NahuLD
+description: You don't want to break blocks with TNT
+
+main: me.nahuld.nokaboom.Main
